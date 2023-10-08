@@ -1,11 +1,21 @@
+// paly drum with mouse click
+
 var numberOfDrums = document.querySelectorAll(".drum").length;
-// console.log(numberOfDrums);
+console.log(numberOfDrums);
 for (var i = 0; i < numberOfDrums; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     var drum = this.innerHTML;
     playSound(drum);
   });
 }
+
+// play drum with keyboard
+
+document.addEventListener("keypress", function (event) {
+  var key = event.key;
+  // console.log(key);
+  playSound(key);
+});
 function playSound(drum) {
   switch (drum) {
     case "w":
