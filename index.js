@@ -6,6 +6,7 @@ for (var i = 0; i < numberOfDrums; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     var drum = this.innerHTML;
     playSound(drum);
+    playAnimation(drum);
   });
 }
 
@@ -15,6 +16,7 @@ document.addEventListener("keypress", function (event) {
   var key = event.key;
   // console.log(key);
   playSound(key);
+  playAnimation(key);
 });
 function playSound(drum) {
   switch (drum) {
@@ -54,6 +56,14 @@ function playSound(drum) {
       kick.play();
       break;
     default:
-
   }
+}
+
+function playAnimation(drum) {
+  var current = document.querySelector("." + drum);
+  current.classList.add("pressed");
+
+  setTimeout(function () {
+    current.classList.remove("pressed");
+  }, 100);
 }
